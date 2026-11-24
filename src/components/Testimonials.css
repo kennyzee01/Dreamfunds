@@ -1,0 +1,138 @@
+.stories {
+  background: var(--bg);
+}
+.stories__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.stories__arrows {
+  display: flex;
+  gap: 8px;
+}
+.stories__arrows button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.18s ease;
+}
+.stories__arrows button:hover {
+  border-color: var(--blue);
+}
+.stories__grid {
+  display: grid;
+  gap: 20px;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 260px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  animation: story-in 0.35s ease both;
+}
+.story__quote {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.story__quote::before {
+  content: '“';
+}
+.story__quote::after {
+  content: '”';
+}
+.story__by {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.story__name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.story__role {
+  font-size: var(--fs-label);
+  line-height: 1.4;
+  color: var(--muted);
+}
+.story__avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  object-fit: cover;
+}
+.story__avatar--initials {
+  display: grid;
+  place-items: center;
+  background: var(--blue-100);
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 600;
+}
+.stories__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 32px;
+}
+.stories__dots button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: var(--line-strong);
+  cursor: pointer;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+.stories__dots button.is-active {
+  width: 20px;
+  background: var(--blue);
+}
+
+@keyframes story-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 767px) {
+  .stories__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .stories__grid {
+    margin-top: 32px;
+  }
+  .story {
+    min-height: 0;
+    padding: 24px;
+  }
+  .story__quote {
+    font-size: 16px;
+  }
+}

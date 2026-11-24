@@ -1,0 +1,110 @@
+.audience-section {
+  overflow: hidden;
+}
+.audience-section--schools {
+  background: var(--blue);
+  color: var(--on-blue);
+}
+.audience-section--schools .eyebrow {
+  color: #b8d3fa;
+}
+.audience-section--schools .h2 {
+  color: #fff;
+}
+.audience-section--parents {
+  background: var(--surface);
+}
+.audience-section__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 72px;
+  padding-block: var(--section);
+}
+.audience {
+  flex: 0 0 460px;
+  min-width: 0;
+}
+.audience .h2 {
+  max-width: 460px;
+}
+.audience__cta {
+  margin-top: 40px;
+}
+.audience-section__art {
+  position: relative;
+  min-width: 0;
+}
+
+/* Dashboard runs off the right edge of the viewport. */
+.audience-section__art--bleed {
+  flex: 1 1 auto;
+  margin-right: calc(-1 * var(--gutter) - 140px);
+}
+.bezel {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px -40px rgba(3, 18, 44, 0.6);
+}
+.bezel > * {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.audience-section__art--phone {
+  flex: 0 1 560px;
+}
+
+@media (max-width: 1199px) {
+  .audience-section__inner {
+    gap: 48px;
+  }
+  .audience {
+    flex-basis: 400px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .audience-section__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 56px;
+  }
+  .audience {
+    flex-basis: auto;
+    max-width: 600px;
+  }
+  .audience .h2 {
+    max-width: 560px;
+  }
+  .audience-section__art--bleed {
+    margin-right: calc(-1 * var(--gutter) - 120px);
+  }
+  .audience-section__art--phone {
+    order: 2;
+    flex-basis: auto;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .audience-section__inner {
+    gap: 44px;
+  }
+  .audience__cta {
+    width: 100%;
+    margin-top: 32px;
+  }
+  /* Keep the dashboard legible: show it larger and let it run off-screen. */
+  .audience-section__art--bleed {
+    width: 620px;
+    margin-right: 0;
+  }
+  .bezel {
+    padding: 6px;
+    border-radius: 14px;
+  }
+}

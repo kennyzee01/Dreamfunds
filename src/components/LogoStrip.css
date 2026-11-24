@@ -1,0 +1,113 @@
+.band {
+  background: var(--surface);
+}
+.band__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.band--schools {
+  border-block: 1px solid var(--line);
+}
+.band--schools .band__inner {
+  gap: 20px;
+  padding-block: 36px 28px;
+}
+.band--partners .band__inner {
+  gap: 40px;
+  padding-block: 88px;
+}
+.band__label {
+  font-size: var(--fs-label);
+  color: var(--muted);
+  text-align: center;
+}
+.band__label strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.band__title {
+  font-size: 26px;
+}
+
+.logo-strip {
+  --gap: 72px;
+  --fade: #fff;
+  position: relative;
+  width: 100%;
+  height: 72px;
+  overflow: hidden;
+}
+.logo-strip::before,
+.logo-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 96px;
+  pointer-events: none;
+}
+.logo-strip::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--fade), rgba(255, 255, 255, 0));
+}
+.logo-strip::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--fade), rgba(255, 255, 255, 0));
+}
+.logo-strip__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: logo-marquee 48s linear infinite;
+}
+.logo-strip:hover .logo-strip__track {
+  animation-play-state: paused;
+}
+.logo-strip__row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0 calc(var(--gap) / 2);
+  list-style: none;
+}
+.logo-strip__row img {
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.logo-strip__row img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes logo-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .band__title {
+    font-size: 22px;
+  }
+  .band--partners .band__inner {
+    gap: 28px;
+    padding-block: 64px;
+  }
+  .logo-strip {
+    --gap: 44px;
+    height: 60px;
+  }
+  .logo-strip::before,
+  .logo-strip::after {
+    width: 40px;
+  }
+  .logo-strip__row img {
+    transform: scale(0.68);
+  }
+}
